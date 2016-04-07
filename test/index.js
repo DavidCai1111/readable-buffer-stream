@@ -2,7 +2,7 @@
 /* global describe it beforeEach */
 const stream = require('stream')
 const should = require('should')
-const BufferStream = require('../lib/index')
+const BufferStream = require('../src/index')
 
 describe('Readable-buffer-stream', function () {
   let bufferStream = null
