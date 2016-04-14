@@ -1,6 +1,5 @@
 'use strict'
 const {Readable} = require('stream')
-const SlowBuffer = require('buffer').SlowBuffer
 
 module.exports = class ReadableBufferStream extends Readable {
   constructor ({
