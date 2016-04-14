@@ -1,11 +1,12 @@
 'use strict'
 const {Readable} = require('stream')
+const SlowBuffer = require('buffer').SlowBuffer
 
 module.exports = class ReadableBufferStream extends Readable {
   constructor ({
     initialSize = 8 * 1024,
     incrementSize = 8 * 1024,
-    chunkSize = 2048
+    chunkSize = 2 * 1024
   } = {}) {
     super()
     this.chunkSize = chunkSize
@@ -33,7 +34,8 @@ module.exports = class ReadableBufferStream extends Readable {
     let buffer = new Buffer(size)
 
     this._buffer.copy(buffer, 0, 0, size)
-    this._buffer.copy(this._buffer, 0, size, this._actualSize)
+    this._buffer = this._buffer.slice(size, this._actualSize)
+
     this._actualSize -= size
     this.push(buffer)
 
