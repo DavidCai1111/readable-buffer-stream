@@ -1,6 +1,6 @@
 {
   "name": "readable-buffer-stream",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Create readable stream which stores data in Buffer",
   "main": "lib/index.js",
   "scripts": {

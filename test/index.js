@@ -38,7 +38,7 @@ describe('Readable-buffer-stream', function () {
   })
 
   it('Should auto increase size', function () {
-    bufferStream.put('hahahahahahhahahah')
+    bufferStream.put(new Buffer(1024 * 20).fill('haha'))
     should(bufferStream._buffer.length > 8).be.true()
   })
 
